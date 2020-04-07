@@ -73,7 +73,7 @@ background-color: #F1F1F1;
   <body>
     
 <div class="header">
-  <a href="https://mcfriends.net/" class="logo"><img src="Annotation 2020-04-06 183225.jpg" alt="mcfriends.net"></a>
+  <a href="https://mcfriends.net/" class="logo"><canvas id="mycanvas"></canvas> </a>
   <div class="header-right">
     <a href="https://mcfriends.net/">Home</a>
     <a class="active" href="mod">Apply for Mod</a>
@@ -99,6 +99,112 @@ background-color: #F1F1F1;
   <button type="submit" class="btn btn-primary float-right">Submit</button>
   </form>
   </section>
+	
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 80); 
+        frameRate(60);
+var grassBlock = function(x, y, s){
+var array = [
+["g3", "g3", "g3", "g2", "g2", "g3", "g1", "g3", "g5", "g4", "g3", "g3", "g3", "g2", "g1", "g3"],
+["g3", "g2", "g4", "g5", "g5", "b1", "g2", "g1", "g1", "g5", "g4", "g3", "g1", "g3", "g2", "g2"],
+["g5", "b1", "g5", "g1", "g3", "b1", "g3", "b1", "g3", "g4", "g5", "g5", "b1", "g3", "g2", "b1"],
+["b1", "gr2", "b1", "b1", "g5", "b1", "b1", "b1", "g1", "b1", "g3", "b1", "b2", "b1", "b1", "b2"],
+["b3", "b2", "b3", "b4", "b1", "b3", "b2", "b2", "b1", "b1", "b1", "gr2", "b3", "b2", "b1", "b2"],
+["b2", "b1", "b3", "b3", "b2", "b3", "b1", "b1", "b1", "b2", "b2", "b1", "b2", "b2", "b2", "b4"],
+["b4", "b1", "b2", "b2", "gr1", "b2", "b2", "b4", "b4", "b2", "b4", "b4", "b2", "b3", "b2", "b3"],
+["b4", "b2", "b4", "b4", "b3", "b3", "b2", "b2", "b3", "b1", "b3", "b3", "b2", "b2", "b3", "b3"],
+["b3", "b2", "b2", "b3", "b2", "b3", "b2", "b1", "b2", "b3", "b3", "b2", "b2", "b2", "b1", "b2"],
+["b3", "b3", "b1", "b2", "b2", "b1", "b1", "b2", "b2", "b2", "b2", "b2", "b4", "b4", "b2", "b3"],
+["b3", "b3", "b2", "b4", "b4", "b2", "b4", "b3", "b1", "b4", "b4", "b2", "b3", "b3", "gr1", "b2"],
+["b3", "b2", "b2", "b3", "b3", "b4", "b2", "b3", "gr2", "b3", "b3", "b2", "b1", "b3", "b2", "b1"],
+["b2", "b1", "b3", "b2", "b3", "b3", "b4", "b2", "b2", "b2", "b2", "b2", "b2", "b2", "b4", "b4"],
+["b2", "b3", "b2", "b2", "b1", "b2", "b3", "b3", "b2", "b1", "b4", "b1", "b2", "b4", "b3", "b3"],
+["b3", "b2", "b1", "b4", "b2", "b1", "b2", "b1", "b2", "b2", "b2", "b1", "b2", "b2", "b3", "b3"],
+["b3", "b2", "b4", "b3", "b3", "b2", "gr1", "b3", "b3", "b3", "b2", "b2", "b3", "b3", "b2", "b1"]
+];
+noStroke();
+for(var i = 0; i < 16; i++){
+    for(var j = 0; j < 16; j++){
+//Greens {
+        if(array[j][i] === "g5"){
+            fill(170, 220, 94);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+        if(array[j][i] === "g4"){
+            fill(152, 194, 78);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+        if(array[j][i] === "g3"){
+            fill(96, 183, 45);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+        if(array[j][i] === "g2"){
+            fill(86, 170, 40);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+        if(array[j][i] === "g1"){
+            fill(93, 148, 41);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+//}
+//Browns {
+        if(array[j][i] === "b4"){
+            fill(200, 136, 83);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+        if(array[j][i] === "b3"){
+            fill(151, 101, 63);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+        if(array[j][i] === "b2"){
+            fill(121, 72, 43);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+        if(array[j][i] === "b1"){
+            fill(81, 45, 23);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+//}
+//Grays  {
+        if(array[j][i] === "gr2"){
+            fill(99, 99, 99);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+        if(array[j][i] === "gr1"){
+            fill(141, 136, 128);
+            rect(x+i*s, y+j*s, s, s); 
+        }
+//}
+    }
+}
+};
+var x = 0;
+var y = 0;
+ draw = function() {
+ background(255, 255, 255);
+if(x < width-(16*5)){
+x+=10;
+} 
+    fill(241);
+    rect(-1, -1, width+1, 85);
+    pushMatrix();
+    translate(x, y);
+    grassBlock(0, 0, 5);
+    popMatrix(); 
+    textAlign(CORNER, CORNER);
+    fill(0, 0, 0);
+    textSize(40);
+    text("mcfriends.net", x-240, 55);
+    grassBlock(x-240-16*5, 0, 5);
+};
+    }};
+    var canvas = document.getElementById("mycanvas"); 
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>	
   </body>
 
 </html>
