@@ -106,7 +106,7 @@ float:top;
  <script>
     var sketchProc = function(processingInstance) {
      with (processingInstance) {
-        size(400, 64); 
+        size(400, 48); 
         frameRate(60);
 var grassBlock = function(x, y, s){
 var array = [
@@ -185,10 +185,10 @@ for(var i = 0; i < 16; i++){
 };
 var x = 0;
 var y = 0;
-var s = 4;
+var s = 3;
 draw = function() {
  background(255, 255, 255);
-if(x < width-(16*s)-5){
+if(x < width-(16*s)-15){
 x+=10;
 } 
     fill(241);
@@ -200,9 +200,10 @@ x+=10;
     textAlign(CORNER, CORNER);
     fill(0, 0, 0);
     textSize(45);
-    text("mcfriends.net", x-273, 55);
+    text("mcfriends.net", x-273, 41);
     grassBlock(x-276-16*s, 0, s);
 };
+
 
     }};
     var canvas = document.getElementById("mycanvas"); 
